@@ -10,7 +10,7 @@ let package = Package(
         .library(
             name: "Feature",
             targets: [
-                "Feature"
+                "Article"
             ]
         )
     ],
@@ -19,7 +19,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Feature",
+            name: "Article",
             dependencies: [
                 "PresenterProtocol",
                 "RouterProtocol",
@@ -30,7 +30,7 @@ let package = Package(
                 .product(name: "DomainModel", package: "Core"),
                 .product(name: "Usecase", package: "Core")
             ],
-            path: "Sources/Modules"
+            path: "Sources/Article"
         ),
         .target(
             name: "ViewProtocol",
@@ -46,7 +46,9 @@ let package = Package(
         ),
         .testTarget(
             name: "FeatureTests",
-            dependencies: ["Feature"]
+            dependencies: [
+                "Article"
+            ]
         ),
     ]
 )

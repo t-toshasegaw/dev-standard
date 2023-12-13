@@ -28,14 +28,3 @@ extension ViewDescriptor {
         }
     }
 }
-
-extension ViewDescriptor {
-    public struct LecacyDescriptor: TypedDescriptor {
-        public typealias Output = UIViewController
-        public let text: String
-        
-        public init(text: String) {
-            self.text = text
-        }
-    }
-}

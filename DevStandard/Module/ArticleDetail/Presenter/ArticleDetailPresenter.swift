@@ -7,5 +7,5 @@
 
 import Foundation
 
-final class LecacyPresenter {
+final class ArticleDetailPresenter {
 }

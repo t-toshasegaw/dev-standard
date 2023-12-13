@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LecacyViewController" customModule="DevStandard" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleDetailViewController" customModule="DevStandard" customModuleProvider="target">
             <connections>
                 <outlet property="textLabel" destination="fc3-Ob-QVg" id="Gmo-ef-YUk"/>
                 <outlet property="view" destination="iN0-l3-epB" id="lGV-UW-sqG"/>

@@ -9,27 +9,39 @@ let package = Package(
     products: [
         .library(
             name: "Asset",
-            targets: ["Asset"]
+            targets: [
+                "Asset"
+            ]
         ),
         .library(
             name: "Extension",
-            targets: ["Extension"]
+            targets: [
+                "Extension"
+            ]
         ),
         .library(
             name: "Enviroment",
-            targets: ["Enviroment"]
+            targets: [
+                "Enviroment"
+            ]
         ),
         .library(
             name: "DomainModel",
-            targets: ["DomainModel"]
+            targets: [
+                "DomainModel"
+            ]
         ),
         .library(
             name: "Usecase",
-            targets: ["Usecase"]
+            targets: [
+                "Usecase"
+            ]
         ),
         .library(
             name: "Infra",
-            targets: ["Infra"]
+            targets: [
+                "Infra"
+            ]
         )
     ],
     dependencies: [
@@ -46,12 +58,16 @@ let package = Package(
         // Enviroment
         .target(
             name: "Enviroment",
-            dependencies: ["Usecase"]
+            dependencies: [
+                "Usecase"
+            ]
         ),
         // Extension
         .target(
             name: "Extension",
-            dependencies: ["APIKit"],
+            dependencies: [
+                "APIKit"
+            ],
             path: "Sources/Extensions"
         ),
         // Domain
@@ -61,12 +77,17 @@ let package = Package(
         ),
         .target(
             name: "Repository",
-            dependencies: ["DomainModel"],
+            dependencies: [
+                "DomainModel"
+            ],
             path: "Sources/Repositories"
         ),
         .target(
             name: "Usecase",
-            dependencies: ["DomainModel"],
+            dependencies: [
+                "DomainModel",
+                "Repository"
+            ],
             path: "Sources/UseCases"
         ),
         .testTarget(

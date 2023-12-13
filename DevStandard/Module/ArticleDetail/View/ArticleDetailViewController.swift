@@ -5,15 +5,16 @@
 //  Created by 長谷川稔樹 on 2023/12/06.
 //
 
+import DomainModel
 import UIKit
 
-final class LecacyViewController: UIViewController {
-    private let text: String
+final class ArticleDetailViewController: UIViewController {
+    private let article: ArticleModel
     
     @IBOutlet private weak var textLabel: UILabel!
     
-    init(text: String) {
-        self.text = text
+    init(article: ArticleModel) {
+        self.article = article
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,5 +25,7 @@ final class LecacyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textLabel.text = article.title
     }
 }

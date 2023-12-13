@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A810E2D52B20C19100A772AB /* LecacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2D42B20C19100A772AB /* LecacyViewController.swift */; };
-		A810E2DC2B20C20B00A772AB /* LecacyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2DB2B20C20B00A772AB /* LecacyRouter.swift */; };
-		A810E2DE2B20C21300A772AB /* LecacyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2DD2B20C21300A772AB /* LecacyPresenter.swift */; };
-		A82DBB132B25B4920016514F /* LecacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DBB122B25B4920016514F /* LecacyViewController.xib */; };
+		A810E2D52B20C19100A772AB /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2D42B20C19100A772AB /* ArticleDetailViewController.swift */; };
+		A810E2DC2B20C20B00A772AB /* ArticleDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2DB2B20C20B00A772AB /* ArticleDetailRouter.swift */; };
+		A810E2DE2B20C21300A772AB /* ArticleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2DD2B20C21300A772AB /* ArticleDetailPresenter.swift */; };
+		A82DBB132B25B4920016514F /* ArticleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DBB122B25B4920016514F /* ArticleDetailViewController.xib */; };
 		A82DBB152B25EC0B0016514F /* Enviroment in Frameworks */ = {isa = PBXBuildFile; productRef = A82DBB142B25EC0B0016514F /* Enviroment */; };
 		A82DBB172B2606890016514F /* AppEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DBB162B2606890016514F /* AppEnviroment.swift */; };
 		A87A46632B29DE9400E95F32 /* Usecase in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46622B29DE9400E95F32 /* Usecase */; };
 		A87A46652B29E08600E95F32 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46642B29E08600E95F32 /* Infra */; };
+		A87A46672B29E3AE00E95F32 /* DomainModel in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46662B29E3AE00E95F32 /* DomainModel */; };
 		A8979AC92AB56FF400465E7B /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8979AC82AB56FF400465E7B /* Main.swift */; };
 		A8979ACD2AB56FF700465E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8979ACC2AB56FF700465E7B /* Assets.xcassets */; };
 		A8979AD02AB56FF700465E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8979ACF2AB56FF700465E7B /* Preview Assets.xcassets */; };
@@ -33,10 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A810E2D42B20C19100A772AB /* LecacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecacyViewController.swift; sourceTree = "<group>"; };
-		A810E2DB2B20C20B00A772AB /* LecacyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecacyRouter.swift; sourceTree = "<group>"; };
-		A810E2DD2B20C21300A772AB /* LecacyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecacyPresenter.swift; sourceTree = "<group>"; };
-		A82DBB122B25B4920016514F /* LecacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LecacyViewController.xib; sourceTree = "<group>"; };
+		A810E2D42B20C19100A772AB /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
+		A810E2DB2B20C20B00A772AB /* ArticleDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailRouter.swift; sourceTree = "<group>"; };
+		A810E2DD2B20C21300A772AB /* ArticleDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailPresenter.swift; sourceTree = "<group>"; };
+		A82DBB122B25B4920016514F /* ArticleDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailViewController.xib; sourceTree = "<group>"; };
 		A82DBB162B2606890016514F /* AppEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnviroment.swift; sourceTree = "<group>"; };
 		A8979AC52AB56FF400465E7B /* DevStandard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevStandard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8979AC82AB56FF400465E7B /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87A46672B29E3AE00E95F32 /* DomainModel in Frameworks */,
 				A87A46632B29DE9400E95F32 /* Usecase in Frameworks */,
 				A87A46652B29E08600E95F32 /* Infra in Frameworks */,
 				A8E338302AB5725100385507 /* Feature in Frameworks */,
@@ -71,26 +73,26 @@
 		A810E2D62B20C1CD00A772AB /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				A810E2D72B20C1E000A772AB /* Lecacy */,
+				A810E2D72B20C1E000A772AB /* ArticleDetail */,
 			);
 			path = Module;
 			sourceTree = "<group>";
 		};
-		A810E2D72B20C1E000A772AB /* Lecacy */ = {
+		A810E2D72B20C1E000A772AB /* ArticleDetail */ = {
 			isa = PBXGroup;
 			children = (
 				A810E2D92B20C1EF00A772AB /* Presenter */,
 				A810E2DA2B20C1F500A772AB /* Router */,
 				A810E2D82B20C1E400A772AB /* View */,
 			);
-			path = Lecacy;
+			path = ArticleDetail;
 			sourceTree = "<group>";
 		};
 		A810E2D82B20C1E400A772AB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A810E2D42B20C19100A772AB /* LecacyViewController.swift */,
-				A82DBB122B25B4920016514F /* LecacyViewController.xib */,
+				A810E2D42B20C19100A772AB /* ArticleDetailViewController.swift */,
+				A82DBB122B25B4920016514F /* ArticleDetailViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,7 +100,7 @@
 		A810E2D92B20C1EF00A772AB /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				A810E2DD2B20C21300A772AB /* LecacyPresenter.swift */,
+				A810E2DD2B20C21300A772AB /* ArticleDetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -106,7 +108,7 @@
 		A810E2DA2B20C1F500A772AB /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				A810E2DB2B20C20B00A772AB /* LecacyRouter.swift */,
+				A810E2DB2B20C20B00A772AB /* ArticleDetailRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -186,6 +188,7 @@
 				A82DBB142B25EC0B0016514F /* Enviroment */,
 				A87A46622B29DE9400E95F32 /* Usecase */,
 				A87A46642B29E08600E95F32 /* Infra */,
+				A87A46662B29E3AE00E95F32 /* DomainModel */,
 			);
 			productName = DevStandard;
 			productReference = A8979AC52AB56FF400465E7B /* DevStandard.app */;
@@ -257,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8979AD02AB56FF700465E7B /* Preview Assets.xcassets in Resources */,
-				A82DBB132B25B4920016514F /* LecacyViewController.xib in Resources */,
+				A82DBB132B25B4920016514F /* ArticleDetailViewController.xib in Resources */,
 				A8979ACD2AB56FF700465E7B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,10 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A810E2DC2B20C20B00A772AB /* LecacyRouter.swift in Sources */,
-				A810E2DE2B20C21300A772AB /* LecacyPresenter.swift in Sources */,
+				A810E2DC2B20C20B00A772AB /* ArticleDetailRouter.swift in Sources */,
+				A810E2DE2B20C21300A772AB /* ArticleDetailPresenter.swift in Sources */,
 				A8979AC92AB56FF400465E7B /* Main.swift in Sources */,
-				A810E2D52B20C19100A772AB /* LecacyViewController.swift in Sources */,
+				A810E2D52B20C19100A772AB /* ArticleDetailViewController.swift in Sources */,
 				A82DBB172B2606890016514F /* AppEnviroment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +563,10 @@
 		A87A46642B29E08600E95F32 /* Infra */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Infra;
+		};
+		A87A46662B29E3AE00E95F32 /* DomainModel */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainModel;
 		};
 		A8E3382F2AB5725100385507 /* Feature */ = {
 			isa = XCSwiftPackageProductDependency;
