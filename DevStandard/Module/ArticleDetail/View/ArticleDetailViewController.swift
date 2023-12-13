@@ -9,6 +9,7 @@ import DomainModel
 import UIKit
 
 final class ArticleDetailViewController: UIViewController {
+    var presenter: ArticleDetailPresenter!
     private let article: ArticleModel
     
     @IBOutlet private weak var textLabel: UILabel!

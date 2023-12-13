@@ -14,7 +14,7 @@ public enum ArticleListDestination {
     case articleDetail(ArticleModel)
 }
 
-public protocol ArticleListWireframe: Wireframe where Destination == ArticleListDestination {}
+protocol ArticleListWireframe: Wireframe where Destination == ArticleListDestination {}
 
 public final class ArticleListRouter: ArticleListWireframe {
     private unowned let viewController: UIViewController

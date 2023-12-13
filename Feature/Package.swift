@@ -12,6 +12,14 @@ let package = Package(
             targets: [
                 "Article"
             ]
+        ),
+        .library(
+            name: "Protocol",
+            targets: [
+                "ViewProtocol",
+                "PresenterProtocol",
+                "RouterProtocol"
+            ]
         )
     ],
     dependencies: [

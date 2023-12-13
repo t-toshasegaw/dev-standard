@@ -7,12 +7,21 @@
 
 import DomainModel
 import Enviroment
+import RouterProtocol
 import UIKit
 
-final class ArticleDetailRouter {
+enum ArticleDetailDestination {
+    case articleDetail(ArticleModel)
+}
+
+protocol ArticleDetailWireframe: Wireframe where Destination == ArticleDetailDestination {}
+
+final class ArticleDetailRouter: ArticleDetailWireframe {
+    private unowned let viewController: UIViewController
     let enviroment: Enviroment
     
-    init(enviroment: Enviroment) {
+    init(viewController: UIViewController, enviroment: Enviroment) {
+        self.viewController = viewController
         self.enviroment = enviroment
     }
     
@@ -21,6 +30,16 @@ final class ArticleDetailRouter {
         enviroment: Enviroment
     ) -> UIViewController {
         let view = ArticleDetailViewController(article: descriptor.article)
+        let router = ArticleDetailRouter(viewController: view, enviroment: enviroment)
+        let presenter = ArticleDetailPresenter(router: router, enviroment: enviroment)
+        
+        view.presenter = presenter
+        
         return view
+    }
+}
+
+extension ArticleDetailRouter {
+    func navigation(to destination: ArticleDetailDestination) {
     }
 }
