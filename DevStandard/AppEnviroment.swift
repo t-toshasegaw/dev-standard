@@ -11,10 +11,6 @@ import Infra
 import Usecase
 
 final class AppEnviroment: Enviroment {
-    var articleListGetError: any ArticleListGetUseCase {
-        ArticleListGetInteractor(qiitaDataStore: QiitaDataStore())
-    }
-    
     func resolve<Descriptor: TypedDescriptor>(_ descriptor: Descriptor) -> Descriptor.Output {
         switch descriptor {
         case let articleListDescriptor as ViewDescriptor.ArticleListDescriptor:
@@ -26,5 +22,15 @@ final class AppEnviroment: Enviroment {
         default:
             fatalError()
         }
+    }
+}
+
+extension AppEnviroment {
+    private enum DataStoreInstance {
+        static let qiitaDataStore = QiitaDataStore()
+    }
+    
+    var articleListGetError: any ArticleListGetUseCase {
+        ArticleListGetInteractor(qiitaDataStore: DataStoreInstance.qiitaDataStore)
     }
 }

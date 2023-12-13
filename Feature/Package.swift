@@ -57,6 +57,6 @@ let package = Package(
             dependencies: [
                 "Article"
             ]
-        ),
+        )
     ]
 )
