@@ -30,9 +30,10 @@ final class ArticleListViewController: UIViewController {
         
         addSwiftUIChild(ArticleListView(presenter: self.presenter ,delegate: self))
         
-        Task {
-            await presenter.getArticleList(of: "swift")
+        Task { [presenter] in
+            await presenter?.getArticleList(of: "swift")
         }
+        .store(in: &cancellables)
         
         // エラー処理
         errorHandling()
@@ -84,8 +85,9 @@ extension ArticleListViewController: UISearchBarDelegate {
         
         guard let keyword = searchBar.text else { return }
         
-        Task {
-            await presenter.getArticleList(of: keyword)
+        Task { [presenter] in
+            await presenter?.getArticleList(of: keyword)
         }
+        .store(in: &cancellables)
     }
 }
