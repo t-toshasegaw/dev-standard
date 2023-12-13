@@ -5,12 +5,11 @@
 //  Created by 長谷川稔樹 on 2023/09/16.
 //
 
-import Dependencies
+import Enviroment
 import DomainModel
 import Foundation
 import PresenterProtocol
 import Usecase
-import UseCaseContainer
 
 struct ArticleListUIState: Equatable {
     var articleList: [ArticleModel] = []
@@ -25,13 +24,14 @@ protocol ArticleListPresentation: Presentation where UIState == ArticleListUISta
 
 final class ArticleListPresenter: ArticleListPresentation {
     private let router: any ArticleListWireframe
+    private let enviroment: Enviroment
+    
     @Published private(set) var uiState: ArticleListUIState
     @Published private(set) var articleListError: ArticleListError?
     
-    @Dependency(\.articleListGetInteractor) private var articleListGetInteractor
-    
-    init(router: some ArticleListWireframe) {
+    init(router: some ArticleListWireframe, enviroment: Enviroment) {
         self.router = router
+        self.enviroment = enviroment
         self.uiState = ArticleListUIState()
     }
 }
@@ -43,7 +43,7 @@ extension ArticleListPresenter {
         uiState.isDisplayProgressView = true
         
         do {
-            let articleModels = try await articleListGetInteractor.execute(keyword)
+            let articleModels = try await enviroment.articleListGetError.execute(keyword)
             uiState.articleList = articleModels
         } catch {
             articleListError = .articleListGetError(error as! ArticleListGetError)

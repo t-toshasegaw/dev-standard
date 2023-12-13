@@ -13,6 +13,8 @@
 		A82DBB132B25B4920016514F /* LecacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DBB122B25B4920016514F /* LecacyViewController.xib */; };
 		A82DBB152B25EC0B0016514F /* Enviroment in Frameworks */ = {isa = PBXBuildFile; productRef = A82DBB142B25EC0B0016514F /* Enviroment */; };
 		A82DBB172B2606890016514F /* AppEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DBB162B2606890016514F /* AppEnviroment.swift */; };
+		A87A46632B29DE9400E95F32 /* Usecase in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46622B29DE9400E95F32 /* Usecase */; };
+		A87A46652B29E08600E95F32 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46642B29E08600E95F32 /* Infra */; };
 		A8979AC92AB56FF400465E7B /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8979AC82AB56FF400465E7B /* Main.swift */; };
 		A8979ACD2AB56FF700465E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8979ACC2AB56FF700465E7B /* Assets.xcassets */; };
 		A8979AD02AB56FF700465E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8979ACF2AB56FF700465E7B /* Preview Assets.xcassets */; };
@@ -49,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87A46632B29DE9400E95F32 /* Usecase in Frameworks */,
+				A87A46652B29E08600E95F32 /* Infra in Frameworks */,
 				A8E338302AB5725100385507 /* Feature in Frameworks */,
 				A82DBB152B25EC0B0016514F /* Enviroment in Frameworks */,
 			);
@@ -180,6 +184,8 @@
 			packageProductDependencies = (
 				A8E3382F2AB5725100385507 /* Feature */,
 				A82DBB142B25EC0B0016514F /* Enviroment */,
+				A87A46622B29DE9400E95F32 /* Usecase */,
+				A87A46642B29E08600E95F32 /* Infra */,
 			);
 			productName = DevStandard;
 			productReference = A8979AC52AB56FF400465E7B /* DevStandard.app */;
@@ -546,6 +552,14 @@
 		A82DBB142B25EC0B0016514F /* Enviroment */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Enviroment;
+		};
+		A87A46622B29DE9400E95F32 /* Usecase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Usecase;
+		};
+		A87A46642B29E08600E95F32 /* Infra */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Infra;
 		};
 		A8E3382F2AB5725100385507 /* Feature */ = {
 			isa = XCSwiftPackageProductDependency;

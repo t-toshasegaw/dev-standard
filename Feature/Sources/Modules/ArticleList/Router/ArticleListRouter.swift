@@ -31,7 +31,7 @@ public final class ArticleListRouter: ArticleListWireframe {
     ) -> UIViewController {
         let view = ArticleListViewController()
         let router = ArticleListRouter(viewController: view, enviroment: enviroment)
-        let presenter = ArticleListPresenter(router: router)
+        let presenter = ArticleListPresenter(router: router, enviroment: enviroment)
         
         view.presenter = presenter
         

@@ -15,8 +15,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../Core"),
-        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.0.0")
+        .package(path: "../Core")
     ],
     targets: [
         .target(
@@ -29,8 +28,7 @@ let package = Package(
                 .product(name: "Enviroment", package: "Core"),
                 .product(name: "Extension", package: "Core"),
                 .product(name: "DomainModel", package: "Core"),
-                .product(name: "Usecase", package: "Core"),
-                .product(name: "Dependencies", package: "swift-dependencies")
+                .product(name: "Usecase", package: "Core")
             ],
             path: "Sources/Modules"
         ),
@@ -48,10 +46,7 @@ let package = Package(
         ),
         .testTarget(
             name: "FeatureTests",
-            dependencies: [
-                "Feature",
-                .product(name: "Dependencies", package: "swift-dependencies")
-            ]
+            dependencies: ["Feature"]
         ),
     ]
 )

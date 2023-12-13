@@ -25,14 +25,14 @@ let package = Package(
         ),
         .library(
             name: "Usecase",
-            targets: [
-                "Usecase",
-                "UseCaseContainer"
-            ]
+            targets: ["Usecase"]
+        ),
+        .library(
+            name: "Infra",
+            targets: ["Infra"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.0.0"),
         // Infra
         .package(url: "https://github.com/ishkawa/APIKit.git", from: "5.4.0"),
         .package(url: "https://github.com/AliSoftware/OHHTTPStubs.git", from: "9.1.0"),
@@ -44,7 +44,10 @@ let package = Package(
             path: "Sources/Assets"
         ),
         // Enviroment
-        .target(name: "Enviroment"),
+        .target(
+            name: "Enviroment",
+            dependencies: ["Usecase"]
+        ),
         // Extension
         .target(
             name: "Extension",
@@ -62,28 +65,9 @@ let package = Package(
             path: "Sources/Repositories"
         ),
         .target(
-            name: "RepositoryContainer",
-            dependencies: [
-                "Infra",
-                "Repository",
-                .product(name: "Dependencies", package: "swift-dependencies")
-            ]
-        ),
-        .target(
             name: "Usecase",
-            dependencies: [
-                "DomainModel",
-                "RepositoryContainer",
-                .product(name: "Dependencies", package: "swift-dependencies")
-            ],
+            dependencies: ["DomainModel"],
             path: "Sources/UseCases"
-        ),
-        .target(
-            name: "UseCaseContainer",
-            dependencies: [
-                "Usecase",
-                .product(name: "Dependencies", package: "swift-dependencies")
-            ]
         ),
         .testTarget(
             name: "DomainTests",

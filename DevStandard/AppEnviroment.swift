@@ -7,8 +7,14 @@
 
 import Enviroment
 import Feature
+import Infra
+import Usecase
 
 final class AppEnviroment: Enviroment {
+    var articleListGetError: any ArticleListGetUseCase {
+        ArticleListGetInteractor(qiitaDataStore: QiitaDataStore())
+    }
+    
     func resolve<Descriptor: TypedDescriptor>(_ descriptor: Descriptor) -> Descriptor.Output {
         switch descriptor {
         case let articleListDescriptor as ViewDescriptor.ArticleListDescriptor:

@@ -9,7 +9,6 @@ import Dependencies
 import DomainModel
 import Foundation
 import Repository
-import RepositoryContainer
 
 public enum ArticleListGetError: UsecaseError {
     case connectionError(Error)
@@ -43,9 +42,11 @@ where Input == String,
       Failure == ArticleListGetError {}
 
 public final class ArticleListGetInteractor {
-    @Dependency(\.qiitaDataStore) private var qiitaDataStore
+    private let qiitaDataStore: QiitaRepository
     
-    public init() {}
+    public init(qiitaDataStore: QiitaRepository) {
+        self.qiitaDataStore = qiitaDataStore
+    }
 }
 
 extension ArticleListGetInteractor: ArticleListGetUseCase {

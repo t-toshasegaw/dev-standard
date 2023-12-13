@@ -8,8 +8,8 @@
 import Combine
 import Foundation
 
-extension Task {
-    public func store(in cancellables: inout Set<AnyCancellable>) {
+public extension Task {
+    func store(in cancellables: inout Set<AnyCancellable>) {
         cancellables.insert(.init { cancel() })
     }
 }
