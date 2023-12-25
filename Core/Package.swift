@@ -62,6 +62,15 @@ let package = Package(
                 "Usecase"
             ]
         ),
+        .target(
+            name: "MockEnvironment",
+            dependencies: [
+                "Environment",
+                "Usecase",
+                "DomainModel"
+            ],
+            path: "Tests/MockEnvironment"
+        ),
         // Extension
         .target(
             name: "Extension",
@@ -88,7 +97,7 @@ let package = Package(
                 "DomainModel",
                 "Repository"
             ],
-            path: "Sources/UseCases"
+            path: "Sources/Usecases"
         ),
         .testTarget(
             name: "DomainTests",
