@@ -20,9 +20,9 @@ let package = Package(
             ]
         ),
         .library(
-            name: "Enviroment",
+            name: "Environment",
             targets: [
-                "Enviroment"
+                "Environment"
             ]
         ),
         .library(
@@ -55,9 +55,9 @@ let package = Package(
             name: "Asset",
             path: "Sources/Assets"
         ),
-        // Enviroment
+        // Environment
         .target(
-            name: "Enviroment",
+            name: "Environment",
             dependencies: [
                 "Usecase"
             ]

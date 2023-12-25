@@ -5,7 +5,7 @@
 //  Created by 長谷川稔樹 on 2023/09/16.
 //
 
-import Enviroment
+import Environment
 import DomainModel
 import Foundation
 import PresenterProtocol
@@ -24,14 +24,14 @@ protocol ArticleListPresentation: Presentation where UIState == ArticleListUISta
 
 final class ArticleListPresenter: ArticleListPresentation {
     private let router: any ArticleListWireframe
-    private let enviroment: Enviroment
+    private let environment: Environment
     
     @Published private(set) var uiState: ArticleListUIState
     @Published private(set) var articleListError: ArticleListError?
     
-    init(router: some ArticleListWireframe, enviroment: Enviroment) {
+    init(router: some ArticleListWireframe, environment: Environment) {
         self.router = router
-        self.enviroment = enviroment
+        self.environment = environment
         self.uiState = ArticleListUIState()
     }
 }
@@ -43,7 +43,7 @@ extension ArticleListPresenter {
         uiState.isDisplayProgressView = true
         
         do {
-            let articleModels = try await enviroment.articleListGetError.execute(keyword)
+            let articleModels = try await environment.articleListGetInteractor.execute(keyword)
             uiState.articleList = articleModels
         } catch {
             articleListError = .articleListGetError(error as! ArticleListGetError)

@@ -5,7 +5,7 @@
 //  Created by 長谷川稔樹 on 2023/12/06.
 //
 
-import Enviroment
+import Environment
 import Foundation
 import PresenterProtocol
 
@@ -16,13 +16,13 @@ protocol ArticleDetailPresentation: Presentation where UIState == ArticleDetailU
 
 final class ArticleDetailPresenter: ArticleDetailPresentation {
     private let router: any ArticleDetailWireframe
-    private let enviroment: Enviroment
+    private let environment: Environment
     
     @Published private(set) var uiState: ArticleDetailUIState
     
-    init(router: some ArticleDetailWireframe, enviroment: Enviroment) {
+    init(router: some ArticleDetailWireframe, environment: Environment) {
         self.router = router
-        self.enviroment = enviroment
+        self.environment = environment
         self.uiState = ArticleDetailUIState()
     }
 }

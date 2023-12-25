@@ -5,7 +5,7 @@
 //  Created by 長谷川稔樹 on 2023/09/16.
 //
 
-import Enviroment
+import Environment
 import DomainModel
 import RouterProtocol
 import UIKit
@@ -18,20 +18,20 @@ protocol ArticleListWireframe: Wireframe where Destination == ArticleListDestina
 
 public final class ArticleListRouter: ArticleListWireframe {
     private unowned let viewController: UIViewController
-    private let enviroment: Enviroment
+    private let environment: Environment
     
-    private init(viewController: UIViewController, enviroment: Enviroment) {
+    private init(viewController: UIViewController, environment: Environment) {
         self.viewController = viewController
-        self.enviroment = enviroment
+        self.environment = environment
     }
     
     public static func assembleModules(
         with descriptor: ViewDescriptor.ArticleListDescriptor,
-        enviroment: Enviroment
+        environment: Environment
     ) -> UIViewController {
         let view = ArticleListViewController()
-        let router = ArticleListRouter(viewController: view, enviroment: enviroment)
-        let presenter = ArticleListPresenter(router: router, enviroment: enviroment)
+        let router = ArticleListRouter(viewController: view, environment: environment)
+        let presenter = ArticleListPresenter(router: router, environment: environment)
         
         view.presenter = presenter
         
@@ -44,7 +44,7 @@ extension ArticleListRouter {
         var view: UIViewController {
             return switch destination {
             case .articleDetail(let article):
-                enviroment.resolve(ViewDescriptor.ArticleDetailDescriptor(article: article))
+                environment.resolve(ViewDescriptor.ArticleDetailDescriptor(article: article))
             }
         }
         viewController.navigationController?.pushViewController(view, animated: true)

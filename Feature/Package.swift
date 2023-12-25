@@ -33,7 +33,7 @@ let package = Package(
                 "RouterProtocol",
                 "ViewProtocol",
                 .product(name: "Asset", package: "Core"),
-                .product(name: "Enviroment", package: "Core"),
+                .product(name: "Environment", package: "Core"),
                 .product(name: "Extension", package: "Core"),
                 .product(name: "DomainModel", package: "Core"),
                 .product(name: "Usecase", package: "Core")

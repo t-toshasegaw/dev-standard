@@ -6,7 +6,7 @@
 //
 
 import DomainModel
-import Enviroment
+import Environment
 import RouterProtocol
 import UIKit
 
@@ -18,20 +18,20 @@ protocol ArticleDetailWireframe: Wireframe where Destination == ArticleDetailDes
 
 final class ArticleDetailRouter: ArticleDetailWireframe {
     private unowned let viewController: UIViewController
-    let enviroment: Enviroment
+    private let environment: Environment
     
-    init(viewController: UIViewController, enviroment: Enviroment) {
+    init(viewController: UIViewController, environment: Environment) {
         self.viewController = viewController
-        self.enviroment = enviroment
+        self.environment = environment
     }
     
     static func assembleModules(
         with descriptor: ViewDescriptor.ArticleDetailDescriptor,
-        enviroment: Enviroment
+        environment: Environment
     ) -> UIViewController {
         let view = ArticleDetailViewController(article: descriptor.article)
-        let router = ArticleDetailRouter(viewController: view, enviroment: enviroment)
-        let presenter = ArticleDetailPresenter(router: router, enviroment: enviroment)
+        let router = ArticleDetailRouter(viewController: view, environment: environment)
+        let presenter = ArticleDetailPresenter(router: router, environment: environment)
         
         view.presenter = presenter
         

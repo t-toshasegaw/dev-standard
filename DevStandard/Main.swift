@@ -5,7 +5,7 @@
 //  Created by 長谷川稔樹 on 2023/09/16.
 //
 
-import Enviroment
+import Environment
 import SwiftUI
 
 @main
@@ -37,7 +37,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 struct ArticleListViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        let view = AppEnviroment().resolve(ViewDescriptor.ArticleListDescriptor())
+        let view = AppEnvironment().resolve(ViewDescriptor.ArticleListDescriptor())
         
         return UINavigationController(rootViewController: view)
     }

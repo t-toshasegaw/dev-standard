@@ -11,8 +11,8 @@
 		A810E2DC2B20C20B00A772AB /* ArticleDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2DB2B20C20B00A772AB /* ArticleDetailRouter.swift */; };
 		A810E2DE2B20C21300A772AB /* ArticleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810E2DD2B20C21300A772AB /* ArticleDetailPresenter.swift */; };
 		A82DBB132B25B4920016514F /* ArticleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82DBB122B25B4920016514F /* ArticleDetailViewController.xib */; };
-		A82DBB152B25EC0B0016514F /* Enviroment in Frameworks */ = {isa = PBXBuildFile; productRef = A82DBB142B25EC0B0016514F /* Enviroment */; };
-		A82DBB172B2606890016514F /* AppEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DBB162B2606890016514F /* AppEnviroment.swift */; };
+		A82DBB172B2606890016514F /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DBB162B2606890016514F /* AppEnvironment.swift */; };
+		A868D6F92B39A62200C9D562 /* Environment in Frameworks */ = {isa = PBXBuildFile; productRef = A868D6F82B39A62200C9D562 /* Environment */; };
 		A87A46632B29DE9400E95F32 /* Usecase in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46622B29DE9400E95F32 /* Usecase */; };
 		A87A46652B29E08600E95F32 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46642B29E08600E95F32 /* Infra */; };
 		A87A46672B29E3AE00E95F32 /* DomainModel in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46662B29E3AE00E95F32 /* DomainModel */; };
@@ -39,7 +39,7 @@
 		A810E2DB2B20C20B00A772AB /* ArticleDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailRouter.swift; sourceTree = "<group>"; };
 		A810E2DD2B20C21300A772AB /* ArticleDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailPresenter.swift; sourceTree = "<group>"; };
 		A82DBB122B25B4920016514F /* ArticleDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailViewController.xib; sourceTree = "<group>"; };
-		A82DBB162B2606890016514F /* AppEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnviroment.swift; sourceTree = "<group>"; };
+		A82DBB162B2606890016514F /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A8979AC52AB56FF400465E7B /* DevStandard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevStandard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8979AC82AB56FF400465E7B /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		A8979ACC2AB56FF700465E7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,8 +57,8 @@
 				A87A46632B29DE9400E95F32 /* Usecase in Frameworks */,
 				A87A46692B29E62100E95F32 /* Protocol in Frameworks */,
 				A87A46652B29E08600E95F32 /* Infra in Frameworks */,
+				A868D6F92B39A62200C9D562 /* Environment in Frameworks */,
 				A8E338302AB5725100385507 /* Feature in Frameworks */,
-				A82DBB152B25EC0B0016514F /* Enviroment in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				A8979AC82AB56FF400465E7B /* Main.swift */,
-				A82DBB162B2606890016514F /* AppEnviroment.swift */,
+				A82DBB162B2606890016514F /* AppEnvironment.swift */,
 				A810E2D62B20C1CD00A772AB /* Module */,
 				A8979ACC2AB56FF700465E7B /* Assets.xcassets */,
 				A8979ACE2AB56FF700465E7B /* Preview Content */,
@@ -187,11 +187,11 @@
 			name = DevStandard;
 			packageProductDependencies = (
 				A8E3382F2AB5725100385507 /* Feature */,
-				A82DBB142B25EC0B0016514F /* Enviroment */,
 				A87A46622B29DE9400E95F32 /* Usecase */,
 				A87A46642B29E08600E95F32 /* Infra */,
 				A87A46662B29E3AE00E95F32 /* DomainModel */,
 				A87A46682B29E62100E95F32 /* Protocol */,
+				A868D6F82B39A62200C9D562 /* Environment */,
 			);
 			productName = DevStandard;
 			productReference = A8979AC52AB56FF400465E7B /* DevStandard.app */;
@@ -286,7 +286,7 @@
 				A810E2DE2B20C21300A772AB /* ArticleDetailPresenter.swift in Sources */,
 				A8979AC92AB56FF400465E7B /* Main.swift in Sources */,
 				A810E2D52B20C19100A772AB /* ArticleDetailViewController.swift in Sources */,
-				A82DBB172B2606890016514F /* AppEnviroment.swift in Sources */,
+				A82DBB172B2606890016514F /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,9 +555,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A82DBB142B25EC0B0016514F /* Enviroment */ = {
+		A868D6F82B39A62200C9D562 /* Environment */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Enviroment;
+			productName = Environment;
 		};
 		A87A46622B29DE9400E95F32 /* Usecase */ = {
 			isa = XCSwiftPackageProductDependency;
