@@ -9,9 +9,7 @@ import Environment
 import Usecase
 
 final class MockEnvironment: Environment {
-    var articleListGetInteractor: any ArticleListGetUseCase {
-        MockArticleListGetInteractor()
-    }
+    lazy var articleListGetInteractor: any ArticleListGetUseCase = MockArticleListGetInteractor()
     
     func resolve<Descriptor: TypedDescriptor>(_ descriptor: Descriptor) -> Descriptor.Output {
         fatalError()

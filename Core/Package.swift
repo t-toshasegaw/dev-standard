@@ -3,6 +3,18 @@
 
 import PackageDescription
 
+extension PackageDescription.Target.Dependency {
+    static let asset: Self = "Asset"
+    static let `extension`: Self = "Extension"
+    static let environment: Self = "Environment"
+    static let domainModel: Self = "DomainModel"
+    static let usecase: Self = "Usecase"
+    static let repository: Self = "Repository"
+    static let infra: Self = "Infra"
+    static let apiKit: Self = "APIKit"
+    static let ohhttpStubs: Self = .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
+}
+
 let package = Package(
     name: "Core",
     platforms: [.iOS(.v17)],
@@ -59,15 +71,15 @@ let package = Package(
         .target(
             name: "Environment",
             dependencies: [
-                "Usecase"
+                .usecase
             ]
         ),
         .target(
             name: "MockEnvironment",
             dependencies: [
-                "Environment",
-                "Usecase",
-                "DomainModel"
+                .environment,
+                .usecase,
+                .domainModel
             ],
             path: "Tests/MockEnvironment"
         ),
@@ -75,7 +87,7 @@ let package = Package(
         .target(
             name: "Extension",
             dependencies: [
-                "APIKit"
+                .apiKit
             ],
             path: "Sources/Extensions"
         ),
@@ -87,15 +99,15 @@ let package = Package(
         .target(
             name: "Repository",
             dependencies: [
-                "DomainModel"
+                .domainModel
             ],
             path: "Sources/Repositories"
         ),
         .target(
             name: "Usecase",
             dependencies: [
-                "DomainModel",
-                "Repository"
+                .domainModel,
+                .repository
             ],
             path: "Sources/Usecases"
         ),
@@ -107,17 +119,17 @@ let package = Package(
         .target(
             name: "Infra",
             dependencies: [
-                "APIKit",
-                "DomainModel",
-                "Extension",
-                "Repository"
+                .apiKit,
+                .domainModel,
+                .extension,
+                .repository
             ]
         ),
         .testTarget(
             name: "InfraTests",
             dependencies: [
-                "Infra",
-                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
+                .infra,
+                .ohhttpStubs
             ]
         )
     ]

@@ -13,15 +13,15 @@ import Usecase
 final class AppEnvironment: Environment {
     func resolve<Descriptor: TypedDescriptor>(_ descriptor: Descriptor) -> Descriptor.Output {
         switch descriptor {
-        case let articleListDescriptor as ViewDescriptor.ArticleListDescriptor:
+        case let descriptor as ViewDescriptor.ArticleListDescriptor:
             return ArticleListRouter.assembleModules(
-                with: articleListDescriptor,
+                with: descriptor,
                 environment: self
             ) as! Descriptor.Output
             
-        case let articleDetailDescriptor as ViewDescriptor.ArticleDetailDescriptor:
+        case let descriptor as ViewDescriptor.ArticleDetailDescriptor:
             return ArticleDetailRouter.assembleModules(
-                with: articleDetailDescriptor,
+                with: descriptor,
                 environment: self
             ) as! Descriptor.Output
             
