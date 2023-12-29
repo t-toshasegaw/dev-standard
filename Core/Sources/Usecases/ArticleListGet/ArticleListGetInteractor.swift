@@ -33,6 +33,19 @@ public enum ArticleListGetError: UsecaseError {
             fatalError("unexpectedErrorCase")
         }
     }
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        switch (lhs, rhs) {
+        case (.connectionError, connectionError),
+            (.requestError, .requestError),
+            (.responseError, .responseError),
+            (.logicFailure, .logicFailure):
+            return true
+            
+        default:
+            return false
+        }
+    }
 }
 
 public protocol ArticleListGetUseCase: Usecase

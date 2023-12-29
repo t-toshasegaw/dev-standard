@@ -7,4 +7,4 @@
 
 import Foundation
 
-public protocol RepositoryError: LocalizedError {}
+public protocol RepositoryError: LocalizedError, Equatable {}

@@ -26,7 +26,7 @@ final class AppEnvironment: Environment {
             ) as! Descriptor.Output
             
         default:
-            fatalError()
+            fatalError("descriptor cases are not covered")
         }
     }
 }

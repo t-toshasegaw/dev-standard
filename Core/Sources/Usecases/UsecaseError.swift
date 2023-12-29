@@ -8,7 +8,7 @@
 import Foundation
 import Repository
 
-public protocol UsecaseError: LocalizedError {
+public protocol UsecaseError: LocalizedError, Equatable {
     associatedtype Error: RepositoryError
     
     init(error: Error?)

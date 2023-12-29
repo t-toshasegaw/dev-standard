@@ -16,7 +16,7 @@ struct ArticleListUIState: Equatable {
     var isDisplayProgressView: Bool = false
 }
 
-enum ArticleListError {
+enum ArticleListError: Equatable {
     case articleListGetError(ArticleListGetError)
 }
 
@@ -52,7 +52,7 @@ extension ArticleListPresenter {
         uiState.isDisplayProgressView = false
     }
     
-    func didSelect(of article: ArticleModel) {
+    func didSelect(of article: ArticleModel) async {
         router.navigation(to: .articleDetail(article))
     }
 }

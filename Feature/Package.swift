@@ -74,6 +74,8 @@ let package = Package(
             name: "FeatureTests",
             dependencies: [
                 .article,
+                .environment,
+                .domainModel,
                 .quick,
                 .nimble
             ]

@@ -12,6 +12,6 @@ final class MockEnvironment: Environment {
     lazy var articleListGetInteractor: any ArticleListGetUseCase = MockArticleListGetInteractor()
     
     func resolve<Descriptor: TypedDescriptor>(_ descriptor: Descriptor) -> Descriptor.Output {
-        fatalError()
+        fatalError("do not ues `resolve` when testing")
     }
 }

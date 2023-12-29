@@ -37,7 +37,8 @@ let package = Package(
         .library(
             name: "Environment",
             targets: [
-                "Environment"
+                "Environment",
+                "MockEnvironment"
             ]
         ),
         .library(

@@ -13,6 +13,19 @@ public enum QiitaRepositoryError: RepositoryError {
     case requestError(Error)
     case responseError(Error)
     case logicFailure(Error)
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        switch (lhs, rhs) {
+        case (.connectionError, connectionError),
+            (.requestError, .requestError),
+            (.responseError, .responseError),
+            (.logicFailure, .logicFailure):
+            return true
+            
+        default:
+            return false
+        }
+    }
 }
 
 public protocol QiitaRepository {

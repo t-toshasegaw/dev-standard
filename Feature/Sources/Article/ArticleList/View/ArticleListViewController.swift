@@ -75,7 +75,10 @@ extension ArticleListViewController {
 
 extension ArticleListViewController: ArticleListViewDelegate {
     func didSelect(of article: ArticleModel) {
-        presenter.didSelect(of: article)
+        Task { [presenter] in
+            await presenter?.didSelect(of: article)
+        }
+        .store(in: &cancellables)
     }
 }
 

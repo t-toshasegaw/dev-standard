@@ -9,9 +9,11 @@ import DomainModel
 import Usecase
 
 final class MockArticleListGetInteractor: ArticleListGetUseCase {
-    var executeCallCount = 0
+    private(set) var executeCallCount = 0
     var executeResult: Result<[ArticleModel], ArticleListGetError>!
     func execute(_ input: String) async throws -> [ArticleModel] {
+        executeCallCount += 1
+        
         switch executeResult {
         case .success(let success):
             return success

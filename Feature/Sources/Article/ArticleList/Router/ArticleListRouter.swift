@@ -10,7 +10,7 @@ import DomainModel
 import RouterProtocol
 import UIKit
 
-public enum ArticleListDestination {
+public enum ArticleListDestination: Equatable {
     case articleDetail(ArticleModel)
 }
 
