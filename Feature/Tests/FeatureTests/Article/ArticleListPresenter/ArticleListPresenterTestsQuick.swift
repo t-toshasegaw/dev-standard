@@ -1,3 +1,10 @@
+//
+//  ArticleListPresenterTestsQuick.swift
+//
+//
+//  Created by 長谷川稔樹 on 2023/12/30.
+//
+
 @testable import Article
 import DomainModel
 import Foundation
@@ -5,7 +12,7 @@ import Foundation
 import Nimble
 import Quick
 
-final class ArticleListPresenterTests: AsyncSpec {
+final class ArticleListPresenterTestsQuick: AsyncSpec {
     override class func spec() {
         var presenter: ArticleListPresenter!
         var router: MockArticleListRouter!
@@ -74,7 +81,7 @@ final class ArticleListPresenterTests: AsyncSpec {
     }
 }
 
-extension ArticleListPresenterTests {
+extension ArticleListPresenterTestsQuick {
     final class MockArticleListRouter: ArticleListWireframe {
         var navigationOutput: ArticleListDestination!
         func navigation(to destination: ArticleListDestination) {

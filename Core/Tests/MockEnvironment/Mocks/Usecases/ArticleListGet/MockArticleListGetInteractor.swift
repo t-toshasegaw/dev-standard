@@ -10,19 +10,14 @@ import Usecase
 
 final class MockArticleListGetInteractor: ArticleListGetUseCase {
     private(set) var executeCallCount = 0
+    var executeCalled: (() -> Void)?
     var executeResult: Result<[ArticleModel], ArticleListGetError>!
     func execute(_ input: String) async throws -> [ArticleModel] {
         executeCallCount += 1
+        executeCalled?()
         
-        switch executeResult {
-        case .success(let success):
-            return success
-            
-        case .failure(let failure):
-            throw failure
-            
-        case .none:
-            fatalError()
+        return try await withCheckedThrowingContinuation {
+            $0.resume(with: executeResult)
         }
     }
 }

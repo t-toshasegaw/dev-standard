@@ -41,7 +41,7 @@ let package = Package(
         .package(path: "../Core"),
         // Test
         .package(url: "https://github.com/Quick/Quick.git", from: "7.3.0"),
-        .package(url: "https://github.com/Quick/Nimble.git", from: "13.1.0"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "13.1.0")
     ],
     targets: [
         .target(
