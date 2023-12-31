@@ -5,16 +5,20 @@
 //  Created by 長谷川稔樹 on 2023/09/17.
 //
 
+import Extension
 import DomainModel
 import SwiftUI
 
 protocol ArticleListViewDelegate: AnyObject {
     func didSelect(of article: ArticleModel)
+    func onErrorAlertDismiss()
 }
 
 struct ArticleListView<Presenter: ArticleListPresentation>: View {
     @StateObject var presenter: Presenter
     weak var delegate: ArticleListViewDelegate?
+    
+    @State private var isShowAlert = false
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -34,6 +38,9 @@ struct ArticleListView<Presenter: ArticleListPresentation>: View {
             if presenter.uiState.isDisplayProgressView {
                 ProgressView()
             }
+        }
+        .errorAlert(error: presenter.uiState.articleListError) {
+            delegate?.onErrorAlertDismiss()
         }
         .animation(.default, value: presenter.uiState.articleList)
     }

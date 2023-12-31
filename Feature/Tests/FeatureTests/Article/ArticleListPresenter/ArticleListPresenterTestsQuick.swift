@@ -57,7 +57,7 @@ final class ArticleListPresenterTestsQuick: AsyncSpec {
                 }
                 
                 it("articleListErrorが更新される") {
-                    let articleListError = await presenter.articleListError
+                    let articleListError = await presenter.uiState.articleListError
                     expect(articleListError) == .articleListGetError(.connectionError(error))
                 }
                 

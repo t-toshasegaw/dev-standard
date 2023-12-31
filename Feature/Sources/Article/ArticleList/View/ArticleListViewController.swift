@@ -34,51 +34,16 @@ final class ArticleListViewController: UIViewController {
             await presenter?.getArticleList(of: "swift")
         }
         .store(in: &cancellables)
-        
-        // エラー処理
-        errorHandling()
-    }
-}
-
-extension ArticleListViewController {
-    private func errorHandling() {
-        presenter.$articleListError
-            .compactMap { $0 }
-            .map { articleListError -> (title: String, message: String) in
-                return switch articleListError {
-                case .articleListGetError(let error):
-                    switch error {
-                    case .connectionError:
-                        ("connectionError", "ネットワーク環境を確認してください")
-                        
-                    case .requestError:
-                        ("requestError", "")
-                        
-                    case .responseError:
-                        ("responseError", "")
-                        
-                    case .logicFailure:
-                        ("logicFailure", "")
-                    }
-                }
-            }
-            .sink { [weak self] title, message in
-                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default)
-                alert.addAction(action)
-                
-                self?.present(alert, animated: true)
-            }
-            .store(in: &cancellables)
     }
 }
 
 extension ArticleListViewController: ArticleListViewDelegate {
     func didSelect(of article: ArticleModel) {
-        Task { [presenter] in
-            await presenter?.didSelect(of: article)
-        }
-        .store(in: &cancellables)
+        presenter.didSelect(of: article)
+    }
+    
+    func onErrorAlertDismiss() {
+        presenter.onErrorAlertDismiss()
     }
 }
 

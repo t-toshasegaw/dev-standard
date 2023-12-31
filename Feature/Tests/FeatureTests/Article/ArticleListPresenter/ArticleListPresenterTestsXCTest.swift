@@ -46,7 +46,7 @@ final class ArticleListPresenterTestsXCTest: XCTestCase {
         articleListGetInteractor.executeResult = .failure(.connectionError(error))
         await presenter.getArticleList(of: "test")
         
-        XCTAssertEqual(presenter.articleListError, .articleListGetError(.connectionError(error)))
+        XCTAssertEqual(presenter.uiState.articleListError, .articleListGetError(.connectionError(error)))
         XCTAssertEqual(presenter.uiState.isDisplayProgressView, false)
     }
     
@@ -55,7 +55,7 @@ final class ArticleListPresenterTestsXCTest: XCTestCase {
         let router = MockArticleListRouter()
         let presenter = ArticleListPresenter(router: router, environment: environment)
         
-        await presenter.didSelect(of: article)
+        presenter.didSelect(of: article)
         
         XCTAssertEqual(router.navigationOutput, .articleDetail(article))
     }
