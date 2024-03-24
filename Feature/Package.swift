@@ -56,19 +56,47 @@ let package = Package(
                 .domainModel,
                 .usecase
             ],
-            path: "Sources/Article"
+            path: "Sources/Article",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         .target(
             name: "ViewProtocol",
-            path: "Sources/ViewProtocols"
+            path: "Sources/ViewProtocols",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         .target(
             name: "PresenterProtocol",
-            path: "Sources/PresenterProtocols"
+            path: "Sources/PresenterProtocols",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         .target(
             name: "RouterProtocol",
-            path: "Sources/RouterProtocols"
+            path: "Sources/RouterProtocols",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         .testTarget(
             name: "FeatureTests",

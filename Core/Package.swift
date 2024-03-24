@@ -72,13 +72,27 @@ let package = Package(
         // Asset
         .target(
             name: "Asset",
-            path: "Sources/Assets"
+            path: "Sources/Assets",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         // Environment
         .target(
             name: "Environment",
             dependencies: [
                 .usecase
+            ],
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
             ]
         ),
         .target(
@@ -96,19 +110,40 @@ let package = Package(
             dependencies: [
                 .apiKit
             ],
-            path: "Sources/Extensions"
+            path: "Sources/Extensions",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         // Domain
         .target(
             name: "DomainModel",
-            path: "Sources/Models"
+            path: "Sources/Models",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         .target(
             name: "Repository",
             dependencies: [
                 .domainModel
             ],
-            path: "Sources/Repositories"
+            path: "Sources/Repositories",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         .target(
             name: "Usecase",
@@ -116,7 +151,14 @@ let package = Package(
                 .domainModel,
                 .repository
             ],
-            path: "Sources/Usecases"
+            path: "Sources/Usecases",
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
+            ]
         ),
         .testTarget(
             name: "DomainTests",
@@ -133,6 +175,13 @@ let package = Package(
                 .domainModel,
                 .extension,
                 .repository
+            ],
+            swiftSettings: [
+                .unsafeFlags(
+                    [
+                        "-strict-concurrency=complete"
+                    ]
+                )
             ]
         ),
         .testTarget(
