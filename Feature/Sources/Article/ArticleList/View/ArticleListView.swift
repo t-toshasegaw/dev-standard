@@ -9,6 +9,7 @@ import Extension
 import DomainModel
 import SwiftUI
 
+@MainActor
 protocol ArticleListViewDelegate: AnyObject {
     func didSelect(of article: ArticleModel)
     func onErrorAlertDismiss()
