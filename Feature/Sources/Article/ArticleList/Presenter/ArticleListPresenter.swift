@@ -70,6 +70,9 @@ final class ArticleListPresenter: ArticleListPresentation {
 
 extension ArticleListPresenter {
     func getArticleList(of keyword: String) async {
+        defer {
+            uiState.isDisplayProgressView = false
+        }
         // 検索開始前にリストを空にする
         uiState.articleList.removeAll()
         uiState.isDisplayProgressView = true
@@ -80,8 +83,6 @@ extension ArticleListPresenter {
         } catch {
             uiState.articleListError = .articleListGetError(error as! ArticleListGetError)
         }
-        
-        uiState.isDisplayProgressView = false
     }
     
     func didSelect(of article: ArticleModel) async {
