@@ -39,11 +39,17 @@ final class ArticleListViewController: UIViewController {
 
 extension ArticleListViewController: ArticleListViewDelegate {
     func didSelect(of article: ArticleModel) {
-        presenter.didSelect(of: article)
+        Task { [presenter] in
+            await presenter?.didSelect(of: article)
+        }
+        .store(in: &cancellables)
     }
     
     func onErrorAlertDismiss() {
-        presenter.onErrorAlertDismiss()
+        Task { [presenter] in
+            await presenter?.onErrorAlertDismiss()
+        }
+        .store(in: &cancellables)
     }
 }
 

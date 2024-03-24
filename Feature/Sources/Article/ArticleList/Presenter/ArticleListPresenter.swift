@@ -84,11 +84,11 @@ extension ArticleListPresenter {
         uiState.isDisplayProgressView = false
     }
     
-    func didSelect(of article: ArticleModel) {
+    func didSelect(of article: ArticleModel) async {
         router.navigation(to: .articleDetail(article))
     }
     
-    func onErrorAlertDismiss() {
+    func onErrorAlertDismiss() async {
         uiState.articleListError = nil
     }
 }
