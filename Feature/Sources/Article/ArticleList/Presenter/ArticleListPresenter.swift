@@ -8,7 +8,7 @@
 import Environment
 import DomainModel
 import Foundation
-import PresenterProtocol
+import Presentation
 import Usecase
 
 struct ArticleListUIState: Equatable {

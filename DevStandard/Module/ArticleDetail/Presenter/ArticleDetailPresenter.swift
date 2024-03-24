@@ -7,7 +7,7 @@
 
 import Environment
 import Foundation
-import PresenterProtocol
+import Presentation
 
 struct ArticleDetailUIState: Equatable {
 }

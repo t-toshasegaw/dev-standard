@@ -7,7 +7,7 @@
 
 import DomainModel
 import Environment
-import RouterProtocol
+import Wireframe
 import UIKit
 
 enum ArticleDetailDestination {

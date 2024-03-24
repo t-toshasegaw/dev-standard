@@ -16,7 +16,7 @@
 		A87A46632B29DE9400E95F32 /* Usecase in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46622B29DE9400E95F32 /* Usecase */; };
 		A87A46652B29E08600E95F32 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46642B29E08600E95F32 /* Infra */; };
 		A87A46672B29E3AE00E95F32 /* DomainModel in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46662B29E3AE00E95F32 /* DomainModel */; };
-		A87A46692B29E62100E95F32 /* Protocol in Frameworks */ = {isa = PBXBuildFile; productRef = A87A46682B29E62100E95F32 /* Protocol */; };
+		A881E1042BAFE64F00DF8863 /* Protocol in Frameworks */ = {isa = PBXBuildFile; productRef = A881E1032BAFE64F00DF8863 /* Protocol */; };
 		A8979AC92AB56FF400465E7B /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8979AC82AB56FF400465E7B /* Main.swift */; };
 		A8979ACD2AB56FF700465E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8979ACC2AB56FF700465E7B /* Assets.xcassets */; };
 		A8979AD02AB56FF700465E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8979ACF2AB56FF700465E7B /* Preview Assets.xcassets */; };
@@ -55,7 +55,7 @@
 			files = (
 				A87A46672B29E3AE00E95F32 /* DomainModel in Frameworks */,
 				A87A46632B29DE9400E95F32 /* Usecase in Frameworks */,
-				A87A46692B29E62100E95F32 /* Protocol in Frameworks */,
+				A881E1042BAFE64F00DF8863 /* Protocol in Frameworks */,
 				A87A46652B29E08600E95F32 /* Infra in Frameworks */,
 				A868D6F92B39A62200C9D562 /* Environment in Frameworks */,
 				A8E338302AB5725100385507 /* Feature in Frameworks */,
@@ -190,8 +190,8 @@
 				A87A46622B29DE9400E95F32 /* Usecase */,
 				A87A46642B29E08600E95F32 /* Infra */,
 				A87A46662B29E3AE00E95F32 /* DomainModel */,
-				A87A46682B29E62100E95F32 /* Protocol */,
 				A868D6F82B39A62200C9D562 /* Environment */,
+				A881E1032BAFE64F00DF8863 /* Protocol */,
 			);
 			productName = DevStandard;
 			productReference = A8979AC52AB56FF400465E7B /* DevStandard.app */;
@@ -573,7 +573,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = DomainModel;
 		};
-		A87A46682B29E62100E95F32 /* Protocol */ = {
+		A881E1032BAFE64F00DF8863 /* Protocol */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Protocol;
 		};

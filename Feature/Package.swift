@@ -9,9 +9,8 @@ extension PackageDescription.Target.Dependency {
     static let `extension`: Self = .product(name: "Extension", package: "Core")
     static let domainModel: Self = .product(name: "DomainModel", package: "Core")
     static let usecase: Self = .product(name: "Usecase", package: "Core")
-    static let viewProtocol: Self = "ViewProtocol"
-    static let presenterProtocol: Self = "PresenterProtocol"
-    static let routerProtocol: Self = "RouterProtocol"
+    static let presentation: Self = "Presentation"
+    static let wireframe: Self = "Wireframe"
     static let article: Self = "Article"
     // Test
     static let quick: Self = "Quick"
@@ -31,9 +30,8 @@ let package = Package(
         .library(
             name: "Protocol",
             targets: [
-                "ViewProtocol",
-                "PresenterProtocol",
-                "RouterProtocol"
+                "Presentation",
+                "Wireframe"
             ]
         )
     ],
@@ -47,9 +45,8 @@ let package = Package(
         .target(
             name: "Article",
             dependencies: [
-                .viewProtocol,
-                .presenterProtocol,
-                .routerProtocol,
+                .presentation,
+                .wireframe,
                 .asset,
                 .environment,
                 .extension,
@@ -66,8 +63,8 @@ let package = Package(
             ]
         ),
         .target(
-            name: "ViewProtocol",
-            path: "Sources/ViewProtocols",
+            name: "Presentation",
+            path: "Sources/Presentation",
             swiftSettings: [
                 .unsafeFlags(
                     [
@@ -77,19 +74,8 @@ let package = Package(
             ]
         ),
         .target(
-            name: "PresenterProtocol",
-            path: "Sources/PresenterProtocols",
-            swiftSettings: [
-                .unsafeFlags(
-                    [
-                        "-strict-concurrency=complete"
-                    ]
-                )
-            ]
-        ),
-        .target(
-            name: "RouterProtocol",
-            path: "Sources/RouterProtocols",
+            name: "Wireframe",
+            path: "Sources/Wireframe",
             swiftSettings: [
                 .unsafeFlags(
                     [

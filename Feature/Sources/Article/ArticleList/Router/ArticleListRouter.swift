@@ -7,7 +7,7 @@
 
 import Environment
 import DomainModel
-import RouterProtocol
+import Wireframe
 import UIKit
 
 public enum ArticleListDestination: Equatable {
