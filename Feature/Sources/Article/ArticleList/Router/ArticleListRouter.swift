@@ -18,16 +18,16 @@ protocol ArticleListWireframe: Wireframe where Destination == ArticleListDestina
 
 public final class ArticleListRouter: ArticleListWireframe {
     private unowned let viewController: UIViewController
-    private let environment: Environment
+    private let environment: any Environment
     
-    private init(viewController: UIViewController, environment: Environment) {
+    private init(viewController: UIViewController, environment: some Environment) {
         self.viewController = viewController
         self.environment = environment
     }
     
     public static func assembleModules(
         with descriptor: ViewDescriptor.ArticleListDescriptor,
-        environment: Environment
+        environment: some Environment
     ) -> UIViewController {
         let view = ArticleListViewController()
         let router = ArticleListRouter(viewController: view, environment: environment)
@@ -42,7 +42,7 @@ public final class ArticleListRouter: ArticleListWireframe {
 extension ArticleListRouter {
     public func navigation(to destination: ArticleListDestination) {
         var view: UIViewController {
-            return switch destination {
+            switch destination {
             case .articleDetail(let article):
                 environment.resolve(ViewDescriptor.ArticleDetailDescriptor(article: article))
             }

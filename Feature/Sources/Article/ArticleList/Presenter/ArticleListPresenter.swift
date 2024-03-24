@@ -57,11 +57,11 @@ protocol ArticleListPresentation: Presentation where UIState == ArticleListUISta
 
 final class ArticleListPresenter: ArticleListPresentation {
     private let router: any ArticleListWireframe
-    private let environment: Environment
+    private let environment: any Environment
     
     @Published private(set) var uiState: ArticleListUIState
     
-    init(router: some ArticleListWireframe, environment: Environment) {
+    init(router: some ArticleListWireframe, environment: some Environment) {
         self.router = router
         self.environment = environment
         self.uiState = ArticleListUIState()

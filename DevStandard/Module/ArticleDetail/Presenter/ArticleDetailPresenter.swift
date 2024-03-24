@@ -16,11 +16,11 @@ protocol ArticleDetailPresentation: Presentation where UIState == ArticleDetailU
 
 final class ArticleDetailPresenter: ArticleDetailPresentation {
     private let router: any ArticleDetailWireframe
-    private let environment: Environment
+    private let environment: any Environment
     
     @Published private(set) var uiState: ArticleDetailUIState
     
-    init(router: some ArticleDetailWireframe, environment: Environment) {
+    init(router: some ArticleDetailWireframe, environment: some Environment) {
         self.router = router
         self.environment = environment
         self.uiState = ArticleDetailUIState()

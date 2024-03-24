@@ -28,7 +28,7 @@ final class ArticleListViewController: UIViewController {
         navigationItem.title = "記事一覧"
         navigationItem.titleView = searchBar
         
-        addSwiftUIChild(ArticleListView(presenter: self.presenter ,delegate: self))
+        addSwiftUIChild(ArticleListView(presenter: presenter ,delegate: self))
         
         Task { [presenter] in
             await presenter?.getArticleList(of: "swift")

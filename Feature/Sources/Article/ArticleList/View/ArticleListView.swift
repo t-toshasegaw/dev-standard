@@ -15,7 +15,7 @@ protocol ArticleListViewDelegate: AnyObject {
 }
 
 struct ArticleListView<Presenter: ArticleListPresentation>: View {
-    @StateObject var presenter: Presenter
+    @ObservedObject var presenter: Presenter
     weak var delegate: ArticleListViewDelegate?
     
     @State private var isShowAlert = false

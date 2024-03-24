@@ -18,16 +18,16 @@ protocol ArticleDetailWireframe: Wireframe where Destination == ArticleDetailDes
 
 final class ArticleDetailRouter: ArticleDetailWireframe {
     private unowned let viewController: UIViewController
-    private let environment: Environment
+    private let environment: any Environment
     
-    init(viewController: UIViewController, environment: Environment) {
+    init(viewController: UIViewController, environment: some Environment) {
         self.viewController = viewController
         self.environment = environment
     }
     
     static func assembleModules(
         with descriptor: ViewDescriptor.ArticleDetailDescriptor,
-        environment: Environment
+        environment: some Environment
     ) -> UIViewController {
         let view = ArticleDetailViewController(article: descriptor.article)
         let router = ArticleDetailRouter(viewController: view, environment: environment)
