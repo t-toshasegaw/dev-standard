@@ -31,23 +31,25 @@ final class ArticleListPresenterTests: XCTestCase {
     }
     
     func test_getArticleList_articleListGetInteractorから成功が返却されたとき() async {
-        // articleListGetInteractorから値が返却されるまではisDisplayProgressViewがtureになる
-        // XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
+        async let result: Void = await presenter.getArticleList(of: "test")
+        articleListGetInteractor.executeResult = { [self] in
+            XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
+            return .success([article])
+        }
         
-        articleListGetInteractor.executeResult = .success([article])
-        await presenter.getArticleList(of: "test")
-        
+        await result
         XCTAssertEqual(presenter.uiState.articleList, [article])
         XCTAssertEqual(presenter.uiState.isDisplayProgressView, false)
     }
     
     func test_getArticleList_articleListGetInteractorから失敗が返却されたとき() async {
-        // articleListGetInteractorから値が返却されるまではisDisplayProgressViewがtureになる
-        // XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
+        async let result: Void = await presenter.getArticleList(of: "test")
+        articleListGetInteractor.executeResult = { [self] in
+            XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
+            return .failure(.connectionError(error))
+        }
         
-        articleListGetInteractor.executeResult = .failure(.connectionError(error))
-        await presenter.getArticleList(of: "test")
-        
+        await result
         XCTAssertEqual(presenter.uiState.articleListError, .articleListGetError(.connectionError(error)))
         XCTAssertEqual(presenter.uiState.isDisplayProgressView, false)
     }
