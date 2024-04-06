@@ -12,9 +12,6 @@ extension PackageDescription.Target.Dependency {
     static let presentation: Self = "Presentation"
     static let wireframe: Self = "Wireframe"
     static let article: Self = "Article"
-    // Test
-    static let quick: Self = "Quick"
-    static let nimble: Self = "Nimble"
 }
 
 let package = Package(
@@ -36,10 +33,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../Core"),
-        // Test
-        .package(url: "https://github.com/Quick/Quick.git", from: "7.3.0"),
-        .package(url: "https://github.com/Quick/Nimble.git", from: "13.1.0")
+        .package(path: "../Core")
     ],
     targets: [
         .target(
@@ -89,9 +83,7 @@ let package = Package(
             dependencies: [
                 .article,
                 .environment,
-                .domainModel,
-                .quick,
-                .nimble
+                .domainModel
             ]
         )
     ]

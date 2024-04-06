@@ -14,8 +14,6 @@ extension PackageDescription.Target.Dependency {
     static let apiKit: Self = "APIKit"
     // Test
     static let ohhttpStubs: Self = .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
-    static let quick: Self = "Quick"
-    static let nimble: Self = "Nimble"
 }
 
 let package = Package(
@@ -63,10 +61,8 @@ let package = Package(
     dependencies: [
         // Infra
         .package(url: "https://github.com/ishkawa/APIKit.git", from: "5.4.0"),
-        .package(url: "https://github.com/AliSoftware/OHHTTPStubs.git", from: "9.1.0"),
         // Test
-        .package(url: "https://github.com/Quick/Quick.git", from: "7.3.0"),
-        .package(url: "https://github.com/Quick/Nimble.git", from: "13.1.0"),
+        .package(url: "https://github.com/AliSoftware/OHHTTPStubs.git", from: "9.1.0")
     ],
     targets: [
         // Asset
@@ -161,11 +157,7 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "DomainTests",
-            dependencies: [
-                .quick,
-                .nimble
-            ]
+            name: "DomainTests"
         ),
         // Infra
         .target(
@@ -188,8 +180,6 @@ let package = Package(
             name: "InfraTests",
             dependencies: [
                 .infra,
-                .quick,
-                .nimble,
                 .ohhttpStubs
             ]
         )

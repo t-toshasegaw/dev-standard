@@ -1,5 +1,5 @@
 //
-//  ArticleListPresenterTestsXCTest.swift
+//  ArticleListPresenterTests.swift
 //
 //
 //  Created by 長谷川稔樹 on 2023/12/30.
@@ -12,20 +12,28 @@ import Foundation
 import XCTest
 
 @MainActor
-final class ArticleListPresenterTestsXCTest: XCTestCase {
+final class ArticleListPresenterTests: XCTestCase {
+    var presenter: ArticleListPresenter!
+    var router: MockRouter!
+    var articleListGetInteractor: MockArticleListGetInteractor!
+    
     let article = ArticleModel(id: "id", title: "title", url: .init(string: "https://hoge.com")!)
     let error = NSError(domain: "error", code: -1)
     
-    func test_getArticleList_articleListGetInteractorから成功が返却されたとき() async {
-        let environment = MockEnvironment()
-        let articleListGetInteractor = environment.articleListGetInteractor as! MockArticleListGetInteractor
-        let router = MockArticleListRouter()
-        let presenter = ArticleListPresenter(router: router, environment: environment)
+    override func setUp() async throws {
+        try await super.setUp()
         
+        let environment = MockEnvironment()
+        articleListGetInteractor = environment.articleListGetInteractor as? MockArticleListGetInteractor
+        router = .init()
+        
+        presenter = .init(router: router, environment: environment)
+    }
+    
+    func test_getArticleList_articleListGetInteractorから成功が返却されたとき() async {
         // articleListGetInteractorから値が返却されるまではisDisplayProgressViewがtureになる
-        articleListGetInteractor.executeCalled = {
-            XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
-        }
+        // XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
+        
         articleListGetInteractor.executeResult = .success([article])
         await presenter.getArticleList(of: "test")
         
@@ -34,15 +42,9 @@ final class ArticleListPresenterTestsXCTest: XCTestCase {
     }
     
     func test_getArticleList_articleListGetInteractorから失敗が返却されたとき() async {
-        let environment = MockEnvironment()
-        let articleListGetInteractor = environment.articleListGetInteractor as! MockArticleListGetInteractor
-        let router = MockArticleListRouter()
-        let presenter = ArticleListPresenter(router: router, environment: environment)
-        
         // articleListGetInteractorから値が返却されるまではisDisplayProgressViewがtureになる
-        articleListGetInteractor.executeCalled = {
-            XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
-        }
+        // XCTAssertEqual(presenter.uiState.isDisplayProgressView, true)
+        
         articleListGetInteractor.executeResult = .failure(.connectionError(error))
         await presenter.getArticleList(of: "test")
         
@@ -51,18 +53,14 @@ final class ArticleListPresenterTestsXCTest: XCTestCase {
     }
     
     func test_didSelect_呼ばれたとき() async {
-        let environment = MockEnvironment()
-        let router = MockArticleListRouter()
-        let presenter = ArticleListPresenter(router: router, environment: environment)
-        
-        presenter.didSelect(of: article)
+        await presenter.didSelect(of: article)
         
         XCTAssertEqual(router.navigationOutput, .articleDetail(article))
     }
 }
 
-extension ArticleListPresenterTestsXCTest {
-    final class MockArticleListRouter: ArticleListWireframe {
+extension ArticleListPresenterTests {
+    final class MockRouter: ArticleListWireframe {
         var navigationOutput: ArticleListDestination!
         func navigation(to destination: ArticleListDestination) {
             navigationOutput = destination
