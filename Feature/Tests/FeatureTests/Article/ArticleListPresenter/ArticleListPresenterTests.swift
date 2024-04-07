@@ -50,7 +50,7 @@ final class ArticleListPresenterTests: XCTestCase {
         }
         
         await result
-        XCTAssertEqual(presenter.uiState.articleListError, .articleListGetError(.connectionError(error)))
+        XCTAssertEqual(presenter.uiState.error, .articleListGetError(.connectionError(error)))
         XCTAssertEqual(presenter.uiState.isDisplayProgressView, false)
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Usecase {
+public protocol Usecase: Sendable {
     associatedtype Input
     associatedtype Output
     associatedtype Failure: UsecaseError

@@ -40,7 +40,7 @@ struct ArticleListView<Presenter: ArticleListPresentation>: View {
                 ProgressView()
             }
         }
-        .errorAlert(error: presenter.uiState.articleListError) {
+        .errorAlert(error: presenter.uiState.error) {
             delegate?.onErrorAlertDismiss()
         }
         .animation(.default, value: presenter.uiState.articleList)

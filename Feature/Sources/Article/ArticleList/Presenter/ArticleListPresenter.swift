@@ -14,43 +14,7 @@ import Usecase
 struct ArticleListUIState: Equatable {
     var articleList: [ArticleModel] = []
     var isDisplayProgressView: Bool = false
-    var articleListError: ArticleListError?
-}
-
-enum ArticleListError: Equatable, LocalizedError {
-    case articleListGetError(ArticleListGetError)
-    
-    var errorDescription: String? {
-        switch self {
-        case .articleListGetError(let error):
-            switch error {
-            case .connectionError:
-                "connectionError"
-                
-            case .requestError:
-                "requestError"
-                
-            case .responseError:
-                "responseError"
-                
-            case .logicFailure:
-                "logicFailure"
-            }
-        }
-    }
-    
-    var failureReason: String? {
-        switch self {
-        case .articleListGetError(let error):
-            switch error {
-            case .connectionError:
-                "ネットワーク環境を確認してください"
-                
-            case .requestError, .responseError, .logicFailure:
-                ""
-            }
-        }
-    }
+    var error: ArticleListError?
 }
 
 protocol ArticleListPresentation: Presentation where UIState == ArticleListUIState {}
@@ -81,7 +45,7 @@ extension ArticleListPresenter {
             let articleModels = try await environment.articleListGetInteractor.execute(keyword)
             uiState.articleList = articleModels
         } catch {
-            uiState.articleListError = .articleListGetError(error as! ArticleListGetError)
+            uiState.error = .articleListGetError(error as! ArticleListGetError)
         }
     }
     
@@ -90,6 +54,6 @@ extension ArticleListPresenter {
     }
     
     func onErrorAlertDismiss() async {
-        uiState.articleListError = nil
+        uiState.error = nil
     }
 }

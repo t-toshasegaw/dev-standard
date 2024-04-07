@@ -28,6 +28,6 @@ public enum QiitaRepositoryError: RepositoryError {
     }
 }
 
-public protocol QiitaRepository {
+public protocol QiitaRepository: Sendable {
     func getArticleList(of keyword: String) async throws -> [ArticleModel]
 }
